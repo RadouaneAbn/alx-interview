@@ -8,11 +8,8 @@ def pascal_triangle(num):
     result = [[1]]
     for i in range(1, num):
         prev = i - 1
-        sub_result = []
-        for j in range(0, i + 1):
-            sub_result.append(
-                (j > 0 and result[prev][j - 1]) + (j < i and result[prev][j])
-            )
-        result.append(sub_result)
+        result.append([(j > 0 and result[prev][j - 1]) + (j < i and result[prev][j])
+                       for j in range(0, i + 1)
+            ])
 
     return result
