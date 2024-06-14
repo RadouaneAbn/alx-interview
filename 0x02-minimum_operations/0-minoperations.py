@@ -10,7 +10,7 @@ def minOperations(n: int) -> int:
     """
     if n == 2:
         return 2
-    elif n == 1:
+    elif n == 1 or n <= 0:
         return 0
 
     result = []
@@ -26,8 +26,5 @@ def minOperations(n: int) -> int:
                 break
         if not trigger:
             break
-
-    if len(result) == 0:
-        return 0
 
     return sum(result)
