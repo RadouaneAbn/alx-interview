@@ -15,7 +15,7 @@ status_count = {}
 i = 0
 
 
-def print_log(totale_size, status_count, status_codes):
+def print_log(totale_size, status_count):
     """ This function prints statistics of a log """
     print("File size: {}".format(totale_size))
     for status_code in status_codes:
@@ -37,9 +37,10 @@ try:
         totale_size += int(size)
         i += 1
         if i == 10:
-            print_log(totale_size, status_count, status_codes)
+            print_log(totale_size, status_count)
             totale_size = 0
             status_count.clear()
             i = 0
 except KeyboardInterrupt:
-    print_log(totale_size, status_count, status_codes)
+    pass
+print_log(totale_size, status_count)
