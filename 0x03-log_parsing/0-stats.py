@@ -24,23 +24,22 @@ def print_log(totale_size, status_count, status_codes):
             print("{}: {}".format(status_code, value))
 
 
-if __name__ == "__main__":
-    try:
-        for line in sys.stdin:
-            result = re.match(pattern, line.strip())
-            if not result:
-                continue
-            status_code, size = result.group(1, 2)
-            if status_code.isnumeric() and status_code in status_codes:
-                status_count[status_code] = status_count.get(
-                    status_code, 0
-                    ) + 1
-            totale_size += int(size)
-            i += 1
-            if i == 10:
-                print_log(totale_size, status_count, status_codes)
-                totale_size = 0
-                status_count.clear()
-                i = 0
-    except KeyboardInterrupt:
-        print_log(totale_size, status_count, status_codes)
+try:
+    for line in sys.stdin:
+        result = re.match(pattern, line.strip())
+        if not result:
+            continue
+        status_code, size = result.group(1, 2)
+        if status_code.isnumeric() and status_code in status_codes:
+            status_count[status_code] = status_count.get(
+                status_code, 0
+                ) + 1
+        totale_size += int(size)
+        i += 1
+        if i == 10:
+            print_log(totale_size, status_count, status_codes)
+            totale_size = 0
+            status_count.clear()
+            i = 0
+except KeyboardInterrupt:
+    print_log(totale_size, status_count, status_codes)
