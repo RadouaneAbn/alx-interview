@@ -44,3 +44,4 @@ try:
 except KeyboardInterrupt:
     pass
 print_log(totale_size, status_count)
+sys.exit(0)
