@@ -36,8 +36,6 @@ try:
         i += 1
         if i == 10:
             print_log(totale_size, status_count)
-            totale_size = 0
-            status_count.clear()
             i = 0
 except KeyboardInterrupt:
     pass
