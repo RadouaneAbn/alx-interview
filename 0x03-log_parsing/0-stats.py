@@ -9,9 +9,9 @@ pattern = (
     r"\[[^\[\]]*\]\s\"GET /projects/260 HTTP/1\.1\"\s(.+)\s(\d+)$"
 )
 
-status_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
 totale_size = 0
-status_count = {}
+status_count = {"200": 0, "301": 0, "400": 0, "401": 0,
+                "403": 0, "404": 0, "405": 0, "500": 0}
 i = 0
 
 
@@ -19,19 +19,18 @@ def print_log(totale_size, status_count):
     """ This function prints statistics of a log """
     print("File size: {}".format(totale_size))
     for key, value in sorted(status_count.items()):
-        print("{}: {}".format(key, value))
+        if value:
+            print("{}: {}".format(key, value))
 
 
 try:
     for line in sys.stdin:
         result = re.match(pattern, line.strip())
-        if not result:
+        if not result and not size.isnumeric():
             continue
         status_code, size = result.group(1, 2)
-        if status_code.isnumeric() and status_code in status_codes:
-            status_count[status_code] = status_count.get(
-                status_code, 0
-                ) + 1
+        if status_code.isnumeric() and status_code in status_count:
+            status_count[status_code] += 1
         totale_size += int(size)
         i += 1
         if i == 10:
