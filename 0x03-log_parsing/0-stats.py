@@ -5,7 +5,7 @@ import sys
 import re
 
 pattern = (
-    r"^\d{,3}\.\d{,3}\.\d{,3}\.\d{,3}\s-\s"
+    r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s-\s"
     r"\[[^\[\]]*\]\s\"GET /projects/260 HTTP/1\.1\"\s(.+)\s(\d+)$"
 )
 
