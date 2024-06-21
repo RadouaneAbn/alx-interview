@@ -29,7 +29,7 @@ try:
         if not result and not size.isnumeric():
             continue
         status_code, size = result.group(1, 2)
-        if status_code.isnumeric() and status_code in status_count:
+        if status_code in status_count:
             status_count[status_code] += 1
         totale_size += int(size)
         i += 1
