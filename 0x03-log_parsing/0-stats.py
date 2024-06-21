@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ 0-stats.py """
 
-import re
 import sys
+import re
 
 pattern = (
     r"^\d{,3}\.\d{,3}\.\d{,3}\.\d{,3}\s-\s"
