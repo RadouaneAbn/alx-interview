@@ -18,10 +18,8 @@ i = 0
 def print_log(totale_size, status_count):
     """ This function prints statistics of a log """
     print("File size: {}".format(totale_size))
-    for status_code in status_codes:
-        value = status_count.get(status_code, None)
-        if value:
-            print("{}: {}".format(status_code, value))
+    for key, value in sorted(status_count.items()):
+        print("{}: {}".format(key, value))
 
 
 try:
