@@ -6,7 +6,7 @@ import re
 
 pattern = (
     r"^\d{,3}\.\d{,3}\.\d{,3}\.\d{,3}\s-\s"
-    r"\[[^\[\]]*\]\s\"[^\"]*\"\s(\d+)\s(\d+)$"
+    r"\[[^\[\]]*\]\s\"GET \/projects\/260 HTTP\/1\.1\"\s(\d+)\s(\d+)$"
 )
 
 status_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
@@ -42,4 +42,3 @@ try:
 except KeyboardInterrupt:
     pass
 print_log(totale_size, status_count)
-sys.exit(0)
