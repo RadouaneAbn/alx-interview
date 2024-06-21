@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" 0-stats.py """
+""" This script that reads stdin line by line and computes metrics """
 
 import sys
 import re
 
 pattern = (
     r"^\d{,3}\.\d{,3}\.\d{,3}\.\d{,3}\s-\s"
-    r"\[[^\[\]]*\]\s\"GET \/projects\/260 HTTP\/1\.1\"\s(.+)\s(\d+)$"
+    r"\[[^\[\]]*\]\s\"GET /projects/260 HTTP/1\.1\"\s(.+)\s(\d+)$"
 )
 
 status_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
