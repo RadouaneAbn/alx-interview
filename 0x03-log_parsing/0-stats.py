@@ -5,7 +5,7 @@ import sys
 import re
 
 pattern = (
-    r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s\-\s"
+    r"^.*\s*\-\s*"
     r"\[[^\[\]]*\]\s\"GET /projects/260 HTTP/1\.1\"\s(.+)\s(\d+)$"
 )
 
@@ -26,9 +26,11 @@ def print_log(totale_size, status_count):
 try:
     for line in sys.stdin:
         result = re.match(pattern, line.strip())
-        if not result and not size.isdigit():
+        if not result:
             continue
         status_code, size = result.group(1, 2)
+        if not size.isdigit():
+            continue
         if status_code in status_count:
             status_count[status_code] += 1
         totale_size += int(size)
