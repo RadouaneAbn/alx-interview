@@ -9,9 +9,9 @@ def makeChange(coins, total):
     coins_count = 0
     number_of_coins = len(coins)
     i = 0
-    while i < number_of_coins:
+    while coins and i < number_of_coins:
         coin = coins[i]
-        if coin > total:
+        if coin > total or coin == 0:
             i += 1
             continue
         total -= coin
