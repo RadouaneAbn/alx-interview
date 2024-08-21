@@ -9,8 +9,6 @@ def makeChange(coins, total):
     coins_count = 0
     number_of_coins = len(coins)
     i = 0
-    if not coins or not total:
-        return 0
     while coins and i < number_of_coins:
         coin = coins[i]
         if coin > total or coin == 0:
