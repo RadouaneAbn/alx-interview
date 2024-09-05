@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """Module for prime game"""
 
+
 def is_multiple(n, m):
     """ This function return true if n is not a multiple of m """
     return n % m != 0
+
 
 def get_all_primes(n):
     """this function returns the number of all prime numbers from 2 to n """
