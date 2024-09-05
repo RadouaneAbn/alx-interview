@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" The Prime Game Module """
+""" The Prime Game Module
+"""
 
 
 def is_multiple(n, m):
@@ -37,16 +38,19 @@ def isWinner(x, nums):
         while new_list:
             # print("before:", new_list)
             n = get_prime(new_list)
+            turn = "ben" if turn == "maria" else "maria"
             if not n:
                 break
             # print("prime found:", n)
             new_list = list(filter(lambda x: is_multiple(x, n), new_list))
-            turn = "ben" if turn == "maria" else "maria"
             # print("after:", new_list)
-        turn = "ben" if turn == "maria" else "maria"
+        # turn = "ben" if turn == "maria" else "maria"
         score[turn] += 1
         # print(score)
         i += 1
-    if score["ben"] == score["maria"]:
+    if score["ben"] > score["maria"]:
+        return "ben"
+    elif score["maria"] > score["ben"]:
+        return "maria"
+    else:
         return None
-    return "maria" if score["maria"] > score["ben"] else "ben"
