@@ -10,12 +10,12 @@ def is_multiple(n, m):
 def get_all_primes(n):
     """this function returns the number of all prime numbers from 2 to n """
     all_nums = [p for p in range(2, n + 1)]
-    prim_count = 0
+    prime_count = 0
     while all_nums:
         n = all_nums[0]
-        prim_count += 0
+        prime_count += 1
         all_nums = list(filter(lambda x: is_multiple(x, n), all_nums))
-    return prim_count
+    return prime_count
 
 
 def isWinner(x, nums):
