@@ -30,6 +30,8 @@ def get_prime(nums):
 
 def isWinner(x, nums):
     """ This function gets teh winner of the prime game game """
+    if x is None or nums is None or x == 0 or nums == []:
+        return None
     score = {"maria": 0, "ben": 0}
     i = 0
     while i < x:
